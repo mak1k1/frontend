@@ -42,7 +42,7 @@ const OrderScreen = () => {
 
   useEffect(() => {
     console.log(order, successPay)
-    if (!order) {
+    if (!order || successPay || order._id !== Number(orderId)) {
       dispatch({
         type: ORDER_PAY_RESET,
       })
