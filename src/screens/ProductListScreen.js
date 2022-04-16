@@ -46,7 +46,7 @@ const ProductListScreen = () => {
     }
 
     if(successCreate) {
-      navigate(`/admin/product/${createdProduct._id}/edit`)
+      navigate(`/admin/product/edit/${createdProduct._id}`)
     }
 
     else {
@@ -106,8 +106,8 @@ const ProductListScreen = () => {
                 <td>{product._id}</td>
                 <td>{product.name}</td>
                 <td>${product.price}</td>
-                <td>${product.category}</td>
-                <td>${product.brand}</td>
+                <td>{product.category}</td>
+                <td>{product.brand}</td>
                 <td>
                   <LinkContainer to={`/admin/product/edit/${product._id}`}>
                     <Button variant="light" className="btn-sm">
