@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useEffect } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { Button, Row, Col, ListGroup, Image, Card } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
@@ -30,7 +30,7 @@ const PlaceOrderScreen = () => {
     if (!cart.paymentMethod) {
       navigate("/payment")
     }
-  }, [])
+  }, [cart.paymentMethod, navigate])
 
   useEffect(() => {
     if (success) {
@@ -39,7 +39,7 @@ const PlaceOrderScreen = () => {
         type: ORDER_CREATE_RESET
       })
     }
-  }, [success, navigate])
+  }, [success, navigate, dispatch, order])
 
   const placeOrder = () => {
     dispatch(
