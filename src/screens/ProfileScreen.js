@@ -36,7 +36,7 @@ const ProfileScreen = () => {
     if (!userInfo) {
       navigate("/login")
     } else {
-      if (!user || !user.name || success) {
+      if (!user || !user.name || success || userInfo._id !== user._id) {
         dispatch({ type: USER_UPDATE_PROFILE_RESET })
         dispatch(getUserDetails("profile"))
         dispatch(listMyOrders())
@@ -126,7 +126,7 @@ const ProfileScreen = () => {
         ) : errorOrders ? (
           <Message variant="danger">{errorOrders}</Message>
         ) : (
-          <Table stripped responsive className="table-sm">
+          <Table stripped='true' responsive className="table-sm">
             <thead>
               <tr>
                 <th>ID</th>
