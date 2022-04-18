@@ -37,7 +37,7 @@ const ProductListScreen = () => {
 
   const userLogin = useSelector((state) => state.userLogin)
   const { userInfo } = userLogin
-  const [searchParams, setSearchParams] = useSearchParams()
+  const [searchParams] = useSearchParams()
 
   let keyword = `?${searchParams}`
 
